@@ -9,7 +9,6 @@ Implement a queue using two stacks. Recall that a queue is a FIFO (first-in, fir
 class queue{
   constructor(){
     this.stack = [];
-    this.store = [];
   }
 
   enqueue(yourElement) {
@@ -22,13 +21,7 @@ class queue{
 }
 
 let test0 = new queue()
-test0.enqueue(1)
-test0.enqueue(2)
-test0.enqueue(3)
-test0.enqueue(4)
-console.log(test0)
-console.log(test0.dequeue())
-console.log(test0)
+
 
 $(document).ready(function() {
 
