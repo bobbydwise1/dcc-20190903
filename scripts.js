@@ -25,13 +25,16 @@ class Queue{
   dequeue(yourElement){
     while ( this.data.stack.length > 0 ) {
       if ( yourElement == this.data.stack[0] ) {
+        setTimeout(function(){}, 1000)
         this.data.stack.shift();
         break;
       } else {
+        setTimeout(function(){}, 1000)
         this.temp.stack.unshift(this.data.stack.shift())
       }
     }
     while ( this.temp.stack.length > 0 ) {
+      setTimeout(function(){}, 1000)
       this.data.stack.unshift(this.temp.stack.shift())
     }
     return this.data.stack
@@ -50,5 +53,22 @@ test0.dequeue(3)
 console.log(test0)
 
 $(document).ready(function() {
-
+  let input1;
+  let user = new Queue()
+  $('#form1').submit(function(){
+    event.preventDefault()
+    input1 = $('#input-1').val()
+    console.log(input1)
+    user.enqueue(input1)
+    $('#output-1').text(JSON.stringify(user.data.stack))
+    $('#output-2').text(JSON.stringify(user.data.temp))
+  });
+  $('#form2').submit(function(){
+    event.preventDefault()
+    input2 = $('#input-2').val()
+    console.log(input2)
+    user.dequeue(input2)
+    $('#output-1').text(JSON.stringify(user.data.stack))
+    $('#output-2').text(JSON.stringify(user.data.temp))
+  });
 });
