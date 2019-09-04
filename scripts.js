@@ -6,21 +6,34 @@ This problem was asked by Apple.
 Implement a queue using two stacks. Recall that a queue is a FIFO (first-in, first-out) data structure with the following methods: enqueue, which inserts an element into the queue, and dequeue, which removes it.
 */
 
-class queue{
+class Stack{
   constructor(){
     this.stack = [];
   }
 
   enqueue(yourElement) {
-    return this.stack.unshift(yourElement)
+    return this.queue.unshift(yourElement)
   }
 
   dequeue() {
-    return this.stack.shift()
+    return this.queue.shift();
   }
 }
 
-let test0 = new queue()
+class Queue{
+  constructor(){
+    this.data = new Stack()
+    this.temp = new Stack()
+  }
+
+  enqueue(yourElement){
+    return this.data.enqueue(yourElement)
+  }
+
+  dequeue(yourElement){
+    
+  }
+}
 
 
 $(document).ready(function() {
