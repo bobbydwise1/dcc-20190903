@@ -28,9 +28,6 @@ class Queue{
     while ( this.data.stack.length > 0 ) {
       if ( yourElement == this.data.stack[0] ) {
         this.data.stack.shift();
-        while ( this.temp.stack.length > 0 ) {
-          this.data.stack.unshift(this.temp.stack.shift())
-        }
         break;
       } else {
         this.temp.stack.unshift(this.data.stack.shift())
@@ -51,7 +48,7 @@ test0.enqueue(3)
 test0.enqueue(4)
 test0.enqueue(5)
 // console.log(test0)
-test0.dequeue(9)
+test0.dequeue(3)
 console.log(test0)
 
 $(document).ready(function() {
