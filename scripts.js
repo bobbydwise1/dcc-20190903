@@ -25,24 +25,21 @@ class Queue{
   dequeue(yourElement){
     let i;
     let j;
-    for ( i = 0; i < this.data.stack.length; i++ ) {
-      console.log('this is i: ', i)
-      if ( this.data.stack[0] == yourElement ) {
+    while ( this.data.stack.length > 0 ) {
+      if ( yourElement == this.data.stack[0] ) {
         this.data.stack.shift();
-        for ( j = 0; j < this.temp.stack.length; j++ ) {
-          this.data.stack.unshift(this.temp.stack.shift());
+        while ( this.temp.stack.length > 0 ) {
+          this.data.stack.unshift(this.temp.stack.shift())
         }
         break;
       } else {
         this.temp.stack.unshift(this.data.stack.shift())
       }
-      console.log('data/temp: ', this.data.stack, ' | ', this.temp.stack)
     }
-    for ( j = 0; j < this.temp.stack.length+1; j++ ) {
-      console.log('this is j: ', j)
-      this.data.stack.unshift(this.temp.stack.shift());
+    while ( this.temp.stack.length > 0 ) {
+      this.data.stack.unshift(this.temp.stack.shift())
     }
-    return null
+    return this.data.stack
   }
 }
 
