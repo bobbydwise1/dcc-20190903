@@ -10,14 +10,6 @@ class Stack{
   constructor(){
     this.stack = [];
   }
-
-  enqueue(yourElement) {
-    return this.queue.unshift(yourElement)
-  }
-
-  dequeue() {
-    return this.queue.shift();
-  }
 }
 
 class Queue{
@@ -27,14 +19,43 @@ class Queue{
   }
 
   enqueue(yourElement){
-    return this.data.enqueue(yourElement)
+    return this.data.stack.unshift(yourElement)
   }
 
   dequeue(yourElement){
-    
+    let i;
+    let j;
+    for ( i = 0; i < this.data.stack.length; i++ ) {
+      console.log('this is i: ', i)
+      if ( this.data.stack[0] == yourElement ) {
+        this.data.stack.shift();
+        for ( j = 0; j < this.temp.stack.length; j++ ) {
+          this.data.stack.unshift(this.temp.stack.shift());
+        }
+        break;
+      } else {
+        this.temp.stack.unshift(this.data.stack.shift())
+      }
+      console.log('data/temp: ', this.data.stack, ' | ', this.temp.stack)
+    }
+    for ( j = 0; j < this.temp.stack.length+1; j++ ) {
+      console.log('this is j: ', j)
+      this.data.stack.unshift(this.temp.stack.shift());
+    }
+    return null
   }
 }
 
+let test0 = new Queue()
+test0.enqueue(0)
+test0.enqueue(1)
+test0.enqueue(2)
+test0.enqueue(3)
+test0.enqueue(4)
+test0.enqueue(5)
+// console.log(test0)
+test0.dequeue(9)
+console.log(test0)
 
 $(document).ready(function() {
 
