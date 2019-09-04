@@ -23,8 +23,6 @@ class Queue{
   }
 
   dequeue(yourElement){
-    let i;
-    let j;
     while ( this.data.stack.length > 0 ) {
       if ( yourElement == this.data.stack[0] ) {
         this.data.stack.shift();
